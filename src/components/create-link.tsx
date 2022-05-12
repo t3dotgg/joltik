@@ -16,7 +16,7 @@ const CreateLinkForm: NextPage = () => {
   const url = window.location.origin;
 
   const slugCheck = trpc.useQuery(["slugCheck", { slug: form.slug }], {
-    refetchOnReconnect: false,
+    refetchOnReconnect: false, // replacement for enable: false which isn't respected.
     refetchOnMount: false,
     refetchOnWindowFocus: false,
   });
@@ -67,7 +67,7 @@ const CreateLinkForm: NextPage = () => {
     >
       {slugCheck.data?.used && <span className="font-medium mr-2 text-center text-red-500">Slug already in use.</span>}
       <div className="flex items-center">
-        <span className="font-medium mr-2 flex-none">{url}/</span>
+        <span className="font-medium mr-2">{url}/</span>
         <input
           type="text"
           onChange={(e) => {
