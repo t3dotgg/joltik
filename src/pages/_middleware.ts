@@ -1,7 +1,10 @@
 import { NextFetchEvent, NextRequest, NextResponse } from "next/server";
 
 export async function middleware(req: NextRequest, ev: NextFetchEvent) {
-  if (req.nextUrl.pathname.startsWith("/api/") || req.nextUrl.pathname === "/") {
+  if (
+    req.nextUrl.pathname.startsWith("/api/") ||
+    req.nextUrl.pathname === "/"
+  ) {
     return;
   }
   const slug = req.nextUrl.pathname.split("/").pop();
