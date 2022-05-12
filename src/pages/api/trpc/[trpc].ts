@@ -14,8 +14,7 @@ export const appRouter = trpc.router()
                     slug: input.slug
                 }
             })
-
-            return { count }
+            return { used: count > 0 }
         }
     })
     .mutation('createSlug', {
