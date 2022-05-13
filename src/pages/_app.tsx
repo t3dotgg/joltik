@@ -1,10 +1,10 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
-import { withTRPC } from '@trpc/next'
-import { AppRouter } from './api/trpc/[trpc]'
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
+import { withTRPC } from "@trpc/next";
+import { AppRouter } from "./api/trpc/[trpc]";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return <Component {...pageProps} />;
 }
 
 function getBaseUrl() {
@@ -16,12 +16,11 @@ function getBaseUrl() {
 
 export default withTRPC<AppRouter>({
   config() {
-
-    const url = `${getBaseUrl()}/api/trpc`
+    const url = `${getBaseUrl()}/api/trpc`;
 
     return {
-      url
-    }
+      url,
+    };
   },
-  ssr: false
-})(MyApp)
+  ssr: false,
+})(MyApp);

@@ -65,7 +65,11 @@ const CreateLinkForm: NextPage = () => {
       }}
       className="flex flex-col justify-center h-screen sm:w-2/3 md:w-1/2 lg:w-1/3"
     >
-      {slugCheck.data?.used && <span className="font-medium mr-2 text-center text-red-500">Slug already in use.</span>}
+      {slugCheck.data?.used && (
+        <span className="font-medium mr-2 text-center text-red-500">
+          Slug already in use.
+        </span>
+      )}
       <div className="flex items-center">
         <span className="font-medium mr-2">{url}/</span>
         <input
