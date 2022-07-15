@@ -23,6 +23,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   if (!data) {
     res.statusCode = 404;
+    res.setHeader("Content-Type", "application/json");
+    res.setHeader("Access-Control-Allow-Origin", "*");
 
     res.send(JSON.stringify({ message: "slug not found" }));
 
